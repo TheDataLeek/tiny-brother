@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+{% block body %}
+<script>
+    var colors = ["DarkGoldenRod", "BlueViolet", "DarkOliveGreen",
+                    "Maroon", "SeaGreen", "Chocolate","DodgerBlue",
+                    "SandyBrown", "DeepPink", "Aqua", "Chartreuse",
+                    "DarkSlateBlue"]
+
+    var domain = {{ domain }};
+    var down = {{ down }};
+    var up = {{ up }};
+
+    var internet_data = []
+    internet_data.push({
+        type: 'area',
+        name: 'Download Speed',
+        pointInterval: 1,
+        pointStart: 0,
+        data: down,
+        color: colors[0]
+    });
+    internet_data.push({
+        type: 'area',
+        name: 'Upload Speed',
+        pointInterval: 1,
+        pointStart: 0,
+        data: up,
+        color: colors[1]
+    });
+
+    $(function() {
+        $('#plot').highcharts({
+            chart: {
+                zoomType: 'x'
+            },
+            title: {
+                text: 'Internet Speed'
+            },
+            xAxis: {
+                type: 'integer'
+            },
+            yAxis: {
+                title: {
+                text: 'Speed (Mb/S)'
+                },
+                min: 0
+            },
+            legend: {
+                enabled: true
+            },
+            plotOptions: {
+                area: {
+                    marker: {
+                        enabled: false
+                    },
+                    lineWidth: 2,
+                    threshold: null
+                }
+            },
+            series: internet_data})});
+</script>
+
+<div id='plot'>
+</div>
+
+{% endblock %}
