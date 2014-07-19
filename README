@@ -1,0 +1,8 @@
+Tiny Brother
+============
+Tiny brother is a tool to monitor your internet with two parts:
+
+1. The watchdog. This is what collects the data. Defaults are speedtesting at 6
+   AM every morning, but this can be changed.
+2. The interactive dashboard. This is how you see the results and determine if
+   you're getting what was promised.
