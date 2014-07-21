@@ -1,0 +1,20 @@
+#header {
+    height: 100px;
+    width: 100%;
+    background-color: DodgerBlue;
+    text-align: center;
+}
+
+#header h1 {
+    padding: 30px;
+}
+
+#plot {
+    float: left;
+    width: 50%;
+}
+
+#raw {
+    float: left;
+    width: 50%;
+}
